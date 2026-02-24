@@ -1,5 +1,3 @@
-!pip install -q streamlit streamlit-mic-recorder langchain langchain-groq langchain-community gtts huggingface_hub pillow requests
-!pip install -q --upgrade httpx groq langchain-groq
 import streamlit as st
 from streamlit_mic_recorder import speech_to_text
 from langchain_groq import ChatGroq
