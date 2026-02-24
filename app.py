@@ -13,10 +13,8 @@ from huggingface_hub import InferenceClient
 from PIL import Image
 
 # API KEYS
-import streamlit as st
-
-GROQ_API_KEY = st.secrets["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"]
-HF_TOKEN = st.secrets["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"]
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
+HF_TOKEN = st.secrets["HF_TOKEN"]
 
 # मौसम फंक्शन (पिछला)
 def get_delhi_weather():
