@@ -1,0 +1,11 @@
+streamlit
+streamlit-mic-recorder
+langchain
+langchain-groq
+langchain-community
+gtts
+huggingface_hub
+pillow
+requests
+ytmusicapi
+spotipy  # अगर Spotify यूज कर रहे हो
