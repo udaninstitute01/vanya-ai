@@ -15,7 +15,7 @@ from PIL import Image
 # API KEYS
 import streamlit as st
 
-GROQ_API_KEY = st.secrets["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"]
+GROQ_API_KEY = st.secrets["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"]
 HF_TOKEN = st.secrets["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"]
 
 # मौसम फंक्शन (पिछला)
