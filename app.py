@@ -1,4 +1,14 @@
 import streamlit as st
+from PIL import Image
+
+# अपना आइकॉन फाइल अपलोड करो GitHub पर (PNG, 32x32 या 512x512 पिक्सल)
+icon = Image.open("icon.png")  # icon.png नाम की फाइल होनी चाहिए
+st.set_page_config(
+    page_title="Vanya AI",
+    page_icon=icon,  # ये आइकॉन टैब में दिखेगा
+    layout="centered",
+    initial_sidebar_state="expanded"
+)
 from streamlit_mic_recorder import speech_to_text
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
