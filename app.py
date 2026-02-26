@@ -53,6 +53,24 @@ st.markdown("""
                 playReceiveSound();
             }
         });
+        # मूड सजेशन वाला हिस्सा (पिछले कोड में)
+            elif "मूड" in lower or "song" in lower or "गाना" in lower:
+                # ... (पिछला कोड)
+                
+                # बैकग्राउंड म्यूजिक चेंज
+                if mood == "sad":
+                    bg_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"  # सैड वाला
+                elif mood == "romantic":
+                    bg_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"  # रोमांटिक
+                else:
+                    bg_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"  # डिफॉल्ट
+                
+                st.markdown(f"""
+                    <script>
+                        document.getElementById('bg_music').src = "{bg_url}";
+                        document.getElementById('bg_music').play();
+                    </script>
+                """, unsafe_allow_html=True)
     </script>
 """, unsafe_allow_html=True)
 
@@ -143,7 +161,7 @@ conversational_chain = RunnableWithMessageHistory(
     history_messages_key="history"
 )
 
-st.title("Vanya - तुम्हारा पर्सनल AI 💕")
+st.title("Vanya - तुम्हारा पर्सनल AI ")
 
 for msg in st.session_state.chat_history.messages:
     with st.chat_message("user" if msg.type == "human" else "assistant"):
