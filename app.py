@@ -9,10 +9,8 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded"
 )
-st.markdown("""
-       
 # बैकग्राउंड म्यूजिक और साउंड इफेक्ट
-
+st.markdown("""
     <audio autoplay loop id="bg_music" style="display:none;">
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
@@ -56,15 +54,8 @@ st.markdown("""
             }
         });
     </script>
-    <link rel="apple-touch-icon" href="icon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="icon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icon.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Vanya AI">
-    <meta name="theme-color" content="#FF69B4">  <!-- अपना कलर डालो, जैसे पिंक -->
 """, unsafe_allow_html=True)
+
 from streamlit_mic_recorder import speech_to_text
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
