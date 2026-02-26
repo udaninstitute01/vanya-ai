@@ -9,7 +9,7 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded"
 )
-st.markdown("""
+    st.markdown("""
     <link rel="apple-touch-icon" href="icon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icon.png">
@@ -18,6 +18,52 @@ st.markdown("""
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Vanya AI">
     <meta name="theme-color" content="#FF69B4">  <!-- अपना कलर डालो, जैसे पिंक -->
+    """, unsafe_allow_html=True)
+# बैकग्राउंड म्यूजिक और साउंड इफेक्ट
+st.markdown("""
+    <audio autoplay loop id="bg_music" style="display:none;">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // बैकग्राउंड म्यूजिक ऑटो प्ले (म्यूट रखा है, यूजर क्लिक पर अनम्यूट कर सकते हो)
+        const bgMusic = document.getElementById('bg_music');
+        bgMusic.volume = 0.2;  // हल्का वॉल्यूम
+        bgMusic.play().catch(function(error) {
+            console.log("Auto-play prevented: " + error);
+        });
+
+        // साउंड इफेक्ट जब यूजर मैसेज भेजे
+        function playSendSound() {
+            const sendSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-message-sent-1043.mp3');
+            sendSound.volume = 0.5;
+            sendSound.play();
+        }
+
+        // साउंड इफेक्ट जब Vanya जवाब दे
+        function playReceiveSound() {
+            const receiveSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-message-received-1044.mp3');
+            receiveSound.volume = 0.5;
+            receiveSound.play();
+        }
+
+        // यूजर इनपुट पर साउंड
+        const inputBox = document.querySelector('input[data-testid="stChatInputTextInput"]');
+        if (inputBox) {
+            inputBox.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    playSendSound();
+                }
+            });
+        }
+
+        // जवाब आने पर साउंड (Streamlit री-रेंडर पर)
+        window.addEventListener('message', function(e) {
+            if (e.data.type === 'streamlit:componentReady') {
+                playReceiveSound();
+            }
+        });
+    </script>
 """, unsafe_allow_html=True)
 
 from streamlit_mic_recorder import speech_to_text
