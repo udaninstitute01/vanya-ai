@@ -20,7 +20,7 @@ st.set_page_config(
     <meta name="theme-color" content="#FF69B4">  <!-- अपना कलर डालो, जैसे पिंक -->
     
 # बैकग्राउंड म्यूजिक और साउंड इफेक्ट
-st.markdown("""
+
     <audio autoplay loop id="bg_music" style="display:none;">
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
@@ -64,7 +64,7 @@ st.markdown("""
             }
         });
     </script>
-""", unsafe_allow_html=True)
+
 """, unsafe_allow_html=True)
 from streamlit_mic_recorder import speech_to_text
 from langchain_groq import ChatGroq
