@@ -18,7 +18,7 @@ st.set_page_config(
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Vanya AI">
     <meta name="theme-color" content="#FF69B4">  <!-- अपना कलर डालो, जैसे पिंक -->
-    """, unsafe_allow_html=True)
+    
 # बैकग्राउंड म्यूजिक और साउंड इफेक्ट
 st.markdown("""
     <audio autoplay loop id="bg_music" style="display:none;">
@@ -65,7 +65,7 @@ st.markdown("""
         });
     </script>
 """, unsafe_allow_html=True)
-
+""", unsafe_allow_html=True)
 from streamlit_mic_recorder import speech_to_text
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
