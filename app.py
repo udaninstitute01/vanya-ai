@@ -8,7 +8,8 @@ st.set_page_config(
     page_icon=icon,  # ये आइकॉन टैब में दिखेगा
     layout="centered",
     initial_sidebar_state="expanded"
-    st.markdown("""
+)
+st.markdown("""
     <link rel="apple-touch-icon" href="icon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icon.png">
@@ -18,7 +19,7 @@ st.set_page_config(
     <meta name="apple-mobile-web-app-title" content="Vanya AI">
     <meta name="theme-color" content="#FF69B4">  <!-- अपना कलर डालो, जैसे पिंक -->
 """, unsafe_allow_html=True)
-)
+
 from streamlit_mic_recorder import speech_to_text
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
