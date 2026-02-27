@@ -11,69 +11,18 @@ st.set_page_config(
 )
 # बैकग्राउंड म्यूजिक और साउंड इफेक्ट
 st.markdown("""
-    <audio autoplay loop id="bg_music" style="display:none;">
+    <audio id="bg_music" loop style="display:none;">
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
+    <button id="playBtn" onclick="document.getElementById('bg_music').play(); this.innerText='Music Playing ❤️'; this.disabled=true;">म्यूजिक ऑन करो 💕</button>
+
     <script>
-        // बैकग्राउंड म्यूजिक ऑटो प्ले (म्यूट रखा है, यूजर क्लिक पर अनम्यूट कर सकते हो)
+        // वॉल्यूम सेट
         const bgMusic = document.getElementById('bg_music');
-        bgMusic.volume = 0.2;  // हल्का वॉल्यूम
-        bgMusic.play().catch(function(error) {
-            console.log("Auto-play prevented: " + error);
-        });
-
-        // साउंड इफेक्ट जब यूजर मैसेज भेजे
-        function playSendSound() {
-            const sendSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-message-sent-1043.mp3');
-            sendSound.volume = 0.5;
-            sendSound.play();
-        }
-
-        // साउंड इफेक्ट जब Vanya जवाब दे
-        function playReceiveSound() {
-            const receiveSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-message-received-1044.mp3');
-            receiveSound.volume = 0.5;
-            receiveSound.play();
-        }
-
-        // यूजर इनपुट पर साउंड
-        const inputBox = document.querySelector('input[data-testid="stChatInputTextInput"]');
-        if (inputBox) {
-            inputBox.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') {
-                    playSendSound();
-                }
-            });
-        }
-
-        // जवाब आने पर साउंड (Streamlit री-रेंडर पर)
-        window.addEventListener('message', function(e) {
-            if (e.data.type === 'streamlit:componentReady') {
-                playReceiveSound();
-            }
-        });
-        # मूड सजेशन वाला हिस्सा (पिछले कोड में)
-            elif "मूड" in lower or "song" in lower or "गाना" in lower:
-                # ... (पिछला कोड)
-                
-                # बैकग्राउंड म्यूजिक चेंज
-                if mood == "sad":
-                    bg_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"  # सैड वाला
-                elif mood == "romantic":
-                    bg_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"  # रोमांटिक
-                else:
-                    bg_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"  # डिफॉल्ट
-                
-                 # बैकग्राउंड म्यूजिक चेंज
-                    <script>
-                        document.getElementById('bg_music').src = "{bg_url}";
-                        document.getElementById('bg_music').play();
-                    </script>
-                
+        bgMusic.volume = 0.2;
     </script>
 """, unsafe_allow_html=True)
-
 from streamlit_mic_recorder import speech_to_text
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
