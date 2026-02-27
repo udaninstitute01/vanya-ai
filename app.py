@@ -23,6 +23,17 @@ st.markdown("""
         bgMusic.volume = 0.2;
     </script>
 """, unsafe_allow_html=True)
+if st.button("बैकग्राउंड म्यूजिक प्ले/पॉज"):
+    st.markdown("""
+        <script>
+            const music = document.getElementById('bg_music');
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        </script>
+    """, unsafe_allow_html=True)
 from streamlit_mic_recorder import speech_to_text
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
