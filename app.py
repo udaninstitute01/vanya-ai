@@ -12,7 +12,7 @@ st.set_page_config(
 # बैकग्राउंड म्यूजिक और साउंड इफेक्ट
 st.markdown("""
     <audio id="bg_music" loop style="display:none;">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <source src="https://files.catbox.moe/1x0q0z.mp3" type="audio/mpeg">
     </audio>
 
     <button id="playBtn" onclick="document.getElementById('bg_music').play(); this.innerText='Music Playing ❤️'; this.disabled=true;">म्यूजिक ऑन करो 💕</button>
