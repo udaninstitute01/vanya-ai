@@ -10,17 +10,17 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 # बैकग्राउंड म्यूजिक और साउंड इफेक्ट
+# बैकग्राउंड म्यूजिक + बटन
 st.markdown("""
     <audio id="bg_music" loop style="display:none;">
-        <source src="https://files.catbox.moe/1x0q0z.mp3" type="audio/mpeg">
+        <source src="https://files.catbox.moe/1x0q0z.mp3" type="audio/mpeg">  <!-- रोमांटिक पियानो -->
     </audio>
 
-    <button id="playBtn" onclick="document.getElementById('bg_music').play(); this.innerText='Music Playing ❤️'; this.disabled=true;">म्यूजिक ऑन करो 💕</button>
+    <button id="playMusicBtn" onclick="document.getElementById('bg_music').play(); this.innerText='म्यूजिक बज रहा है ❤️'; this.disabled=true;">म्यूजिक ऑन करो 💕</button>
 
     <script>
-        // वॉल्यूम सेट
         const bgMusic = document.getElementById('bg_music');
-        bgMusic.volume = 0.2;
+        bgMusic.volume = 0.2;  // हल्का वॉल्यूम
     </script>
 """, unsafe_allow_html=True)
 if st.button("बैकग्राउंड म्यूजिक प्ले/पॉज"):
