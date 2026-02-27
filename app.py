@@ -65,12 +65,12 @@ st.markdown("""
                 else:
                     bg_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"  # डिफॉल्ट
                 
-                st.markdown(f"""
+                 # बैकग्राउंड म्यूजिक चेंज
                     <script>
                         document.getElementById('bg_music').src = "{bg_url}";
                         document.getElementById('bg_music').play();
                     </script>
-                """, unsafe_allow_html=True)
+                
     </script>
 """, unsafe_allow_html=True)
 
