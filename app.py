@@ -11,30 +11,25 @@ st.set_page_config(
 )
 # बैकग्राउंड म्यूजिक और साउंड इफेक्ट
 # बैकग्राउंड म्यूजिक + बटन
-st.markdown("""
-    <audio id="bg_music" loop style="display:none;">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">  <!-- रोमांटिक पियानो -->
-    </audio>
+# बैकग्राउंड म्यूजिक प्लेयर (Streamlit तरीके से)
+if 'music_playing' not in st.session_state:
+    st.session_state.music_playing = False
 
-    <button id="playMusicBtn" onclick="document.getElementById('bg_music').play(); this.innerText='म्यूजिक बज रहा है ❤️'; this.disabled=true;">म्यूजिक ऑन करो 💕</button>
+if st.button("म्यूजिक ऑन करो 💕" if not st.session_state.music_playing else "म्यूजिक बंद करो 🎶"):
+    st.session_state.music_playing = not st.session_state.music_playing
+    st.rerun()
 
-    <script>
-        const bgMusic = document.getElementById('bg_music');
-        bgMusic.volume = 0.2;  // हल्का वॉल्यूम
-    </script>
-""", unsafe_allow_html=True)
-if st.button("बैकग्राउंड म्यूजिक प्ले/पॉज"):
+# अगर प्ले हो रहा है तो ऑडियो प्लेयर दिखाओ
+if st.session_state.music_playing:
     st.markdown("""
-        <script>
-            const music = document.getElementById('bg_music');
-            if (music.paused) {
-                music.play();
-            } else {
-                music.pause();
-            }
-        </script>
+        <audio autoplay loop>
+            <source src="https://files.catbox.moe/1x0q0z.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     """, unsafe_allow_html=True)
-from streamlit_mic_recorder import speech_to_text
+    st.caption("रोमांटिक बैकग्राउंड बज रहा है... ❤️")
+else:
+    st.caption("म्यूजिक बंद है। ऑन करने के लिए बटन दबाओ।")from streamlit_mic_recorder import speech_to_text
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables.history import RunnableWithMessageHistory
