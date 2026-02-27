@@ -13,7 +13,7 @@ st.set_page_config(
 # बैकग्राउंड म्यूजिक + बटन
 st.markdown("""
     <audio id="bg_music" loop style="display:none;">
-        <source src="https://files.catbox.moe/1x0q0z.mp3" type="audio/mpeg">  <!-- रोमांटिक पियानो -->
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-soft-piano-123.mp3">  <!-- रोमांटिक पियानो -->
     </audio>
 
     <button id="playMusicBtn" onclick="document.getElementById('bg_music').play(); this.innerText='म्यूजिक बज रहा है ❤️'; this.disabled=true;">म्यूजिक ऑन करो 💕</button>
